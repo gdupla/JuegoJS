@@ -1,7 +1,7 @@
 ﻿var idArrastrado = "";
 var jugadorActivo;
 
-$(function () {
+function NuevoJuego() {
   var colors = ["red", "blue", "green", "yellow"];
 
   $(".dot").each(function () {
@@ -12,7 +12,7 @@ $(function () {
 
   jugadorActivo = Math.ceil((Math.random() * 2));
   cambiaJugador();
-});
+}
 
 function start(e) {
   //e.dataTransfer.setData("text/plain", e.target.id); // Coje el elemento que se va a mover
@@ -44,7 +44,7 @@ function end(e) {
   $(".dot").each(function () {
     $(this).css('border', '0');
     $(this).css('opacity', '1');
-  });  
+  });
 }
 
 function over(e) {
@@ -140,7 +140,7 @@ function checkObjetivos() {
           $(idMarcador).html(puntosJugadorActivo + puntos);
           $.extend(objetivoCumplido, puntosCumplen);
         }
-      }   
+      }
     });
   });
 
