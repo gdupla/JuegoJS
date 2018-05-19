@@ -2,215 +2,242 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="utf-8" />
-  <title></title>
-  <style>
-    .dot {
-      height: 80px;
-      width: 80px;
-      border-radius: 50%;
-      display: inline-block;
-      margin: 5px;
-      cursor: pointer;
-      float: left;
-    }
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .dot {
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 5px;
+            cursor: pointer;
+            float: left;
+        }
 
-    #tablero {
-      border: 5px solid black;
-      background-color: #bfbfbf;
-      padding: 5px;
-      width: 40%;
-      text-align: center;
-      vertical-align: middle;
-      float: left;
-    }
+        #tablero {
+            border: 5px solid black;
+            background-color: #bfbfbf;
+            padding: 5px;
+            width: 40%;
+            text-align: center;
+            vertical-align: middle;
+            float: left;
+        }
 
-    #marcador {
-      margin-left: 25px;
-      margin-bottom: 25px;
-      border: 5px solid black;
-      background-color: #bfbfbf;
-      padding: 5px;
-      text-align: center;
-      vertical-align: middle;
-      width: 40%;
-      float: left;
-    }
+        #marcador {
+            margin-left: 25px;
+            margin-bottom: 25px;
+            border: 5px solid black;
+            background-color: #bfbfbf;
+            padding: 5px;
+            text-align: center;
+            vertical-align: middle;
+            width: 40%;
+            float: left;
+        }
 
-    .objetivos {
-      margin-left: 25px;
-      border: 5px solid black;
-      background-color: #bfbfbf;
-      padding: 5px;
-      text-align: center;
-      vertical-align: middle;
-      width: 20%;
-      float: left;
-    }
+        .tableroPeronal {
+            margin-left: 25px;
+            border: 5px solid black;
+            background-color: #bfbfbf;
+            padding: 5px;
+            text-align: center;
+            vertical-align: middle;
+            width: 20%;
+            float: left;
+        }
 
-    .objetivo {
-      border: 1px solid black;
-      background-color: #eaeaea;
-      margin: 5px;
-      padding: 10px;
-      float: left;
-      clear: both;
-    }
+        .objetivo {
+            border: 1px solid black;
+            background-color: #eaeaea;
+            margin: 5px;
+            padding: 10px;
+            float: left;
+            clear: both;
+        }
 
-      .objetivo p {
-        padding: 0;
-        margin: 0;
-        margin-bottom: 5px;
-      }
+            .objetivo p {
+                padding: 0;
+                margin: 0;
+                margin-bottom: 5px;
+            }
 
-    .grafico {
-      border: 1px solid black;
-      background-color: #fff;
-      padding: 10px;
-      float: left;
-      vertical-align: middle;
-    }
+        .grafico {
+            border: 1px solid black;
+            background-color: #fff;
+            padding: 10px;
+            float: left;
+            vertical-align: middle;
+        }
 
-    .caracteristicas {
-      margin-left: 5px;
-      float: left;
-      vertical-align: top;
-    }
+        .caracteristicas {
+            margin-left: 5px;
+            float: left;
+            vertical-align: top;
+        }
 
-      .caracteristicas p {
-        padding: 0;
-        margin: 0;
-      }
+            .caracteristicas p {
+                padding: 0;
+                margin: 0;
+            }
 
 
-    .smallDot {
-      height: 20px;
-      width: 20px;
-      border-radius: 50%;
-      float: left;
-      margin: 2px;
-    }
+        .smallDot {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            float: left;
+            margin: 2px;
+        }
 
-    .nl {
-      clear: left;
-    }
+        .nl {
+            clear: left;
+        }
 
-    .white {
-      background-color: white;
-    }
+        .white {
+            background-color: white;
+        }
 
-    .red {
-      background-color: red;
-    }
+        .red {
+            background-color: red;
+        }
 
-    .green {
-      background-color: green;
-    }
+        .green {
+            background-color: green;
+        }
 
-    .yellow {
-      background-color: yellow;
-    }
+        .yellow {
+            background-color: yellow;
+        }
 
-    .blue {
-      background-color: blue;      
-    }
-  </style>
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="Default.js"></script>
+        .blue {
+            background-color: blue;
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="Default.js"></script>
 </head>
 <body>
-  <div id="tablero">
-    <div><input type="button" value="Nuevo Juego" onclick="NuevoJuego()" /></div>
-    <div class="dot" id="0-0" data-x="0" data-y="0" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="1-0" data-x="1" data-y="0" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="2-0" data-x="2" data-y="0" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="3-0" data-x="3" data-y="0" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="4-0" data-x="4" data-y="0" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot nl" id="0-1" data-x="0" data-y="1" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="1-1" data-x="1" data-y="1" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="2-1" data-x="2" data-y="1" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="3-1" data-x="3" data-y="1" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="4-1" data-x="4" data-y="1" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot nl" id="0-2" data-x="0" data-y="2" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="1-2" data-x="1" data-y="2" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="2-2" data-x="2" data-y="2" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="3-2" data-x="3" data-y="2" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="4-2" data-x="4" data-y="2" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot nl" id="0-3" data-x="0" data-y="3" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="1-3" data-x="1" data-y="3" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="2-3" data-x="2" data-y="3" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="3-3" data-x="3" data-y="3" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="4-3" data-x="4" data-y="3" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot nl" id="0-4" data-x="0" data-y="4" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="1-4" data-x="1" data-y="4" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="2-4" data-x="2" data-y="4" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="3-4" data-x="3" data-y="4" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-    <div class="dot" id="4-4" data-x="4" data-y="4" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
-  </div>
-  <div id="marcador">
-    <p>Objetivos</p>
-    <p id="jugador1">Jugador 1: <span id="marcadorJugador1">0</span></p>
-    <p id="jugador2">Jugador 2: <span id="marcadorJugador2">0</span></p>
-  </div>
-  <div id="ObjetivosJugador1" class="objetivos">
-    <p>Objetivos Jugador 1</p>
-    <div class="objetivo" data-color="red" data-puntos="3" data-score="10" data-cumplido="NO" data-jugador="1">
-      <p>Objetivo</p>
-      <div class="grafico">
-        <div class="smallDot red" data-x="0" data-y="0" data-color="red"></div>
-        <div class="smallDot red" data-x="1" data-y="0" data-color="red"></div>
-        <div class="smallDot nl red" data-x="0" data-y="1" data-color="red"></div>
-      </div>
-      <div class="caracteristicas">
-        <p>Puntos: <span class="puntos">10</span></p>
-      </div>
+    <div id="tablero">
+        <div><input type="button" value="Nuevo Juego" onclick="NuevoJuego()" /></div>
+        <div class="dot" id="0-0" data-x="0" data-y="0" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="1-0" data-x="1" data-y="0" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="2-0" data-x="2" data-y="0" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="3-0" data-x="3" data-y="0" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="4-0" data-x="4" data-y="0" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot nl" id="0-1" data-x="0" data-y="1" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="1-1" data-x="1" data-y="1" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="2-1" data-x="2" data-y="1" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="3-1" data-x="3" data-y="1" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="4-1" data-x="4" data-y="1" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot nl" id="0-2" data-x="0" data-y="2" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="1-2" data-x="1" data-y="2" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="2-2" data-x="2" data-y="2" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="3-2" data-x="3" data-y="2" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="4-2" data-x="4" data-y="2" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot nl" id="0-3" data-x="0" data-y="3" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="1-3" data-x="1" data-y="3" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="2-3" data-x="2" data-y="3" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="3-3" data-x="3" data-y="3" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="4-3" data-x="4" data-y="3" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot nl" id="0-4" data-x="0" data-y="4" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="1-4" data-x="1" data-y="4" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="2-4" data-x="2" data-y="4" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="3-4" data-x="3" data-y="4" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+        <div class="dot" id="4-4" data-x="4" data-y="4" draggable="true" ondragstart="start(event)" ondragend="end(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
     </div>
-    <div class="objetivo" data-color="green" data-puntos="5" data-score="25" data-cumplido="NO" data-jugador="1">
-      <p>Objetivo</p>
-      <div class="grafico">
-        <div class="smallDot green" data-x="0" data-y="0" data-color="red"></div>
-        <div class="smallDot green" data-x="1" data-y="0" data-color="red"></div>
-        <div class="smallDot green" data-x="2" data-y="0" data-color="red"></div>
-        <div class="smallDot green" data-x="3" data-y="0" data-color="red"></div>
-        <div class="smallDot green" data-x="4" data-y="0" data-color="red"></div>
-      </div>
-      <div class="caracteristicas">
-        <p>Puntos: <span class="puntos">25</span></p>
-      </div>
+    <div id="marcador">
+        <p>Objetivos</p>
+        <p>Jugador 1: <span id="marcadorJugador1">0</span></p>
+        <p>Jugador 2: <span id="marcadorJugador2">0</span></p>
     </div>
-  </div>
-  <div id="ObjetivosJugador2" class="objetivos">
-    <p>Objetivos Jugador 2</p>
-    <div class="objetivo" data-color="red" data-puntos="5" data-score="25" data-cumplido="NO" data-jugador="2">
-      <p>Objetivo</p>
-      <div class="grafico">
-        <div class="smallDot white" data-x="0" data-y="0" data-color="white"></div>
-        <div class="smallDot red" data-x="1" data-y="0" data-color="red"></div>
-        <div class="smallDot white" data-x="2" data-y="0" data-color="white"></div>
-        <div class="smallDot red nl" data-x="0" data-y="1" data-color="red"></div>
-        <div class="smallDot red" data-x="1" data-y="1" data-color="red"></div>
-        <div class="smallDot red" data-x="2" data-y="1" data-color="red"></div>
-        <div class="smallDot white nl" data-x="0" data-y="2" data-color="white"></div>
-        <div class="smallDot red" data-x="1" data-y="2" data-color="red"></div>
-        <div class="smallDot white" data-x="2" data-y="2" data-color="white"></div>
-      </div>
-      <div class="caracteristicas">
-        <p>Puntos: <span class="puntos">25</span></p>
-      </div>
+    <div id="Jugador1" class="tableroPeronal">
+        <p>Objetivos Jugador 1</p>
+        <div id="ObjetivosJugador1" class="objetivos"></div>
     </div>
-    <div class="objetivo" data-color="blue" data-puntos="4" data-score="15" data-cumplido="NO" data-jugador="2">
-      <p>Objetivo</p>
-      <div class="grafico">
-        <div class="smallDot white" data-x="0" data-y="0" data-color="white"></div>
-        <div class="smallDot blue" data-x="1" data-y="0" data-color="blue"></div>
-        <div class="smallDot blue nl" data-x="0" data-y="1" data-color="blue"></div>
-        <div class="smallDot blue" data-x="1" data-y="1" data-color="blue"></div>
-        <div class="smallDot blue nl" data-x="0" data-y="2" data-color="blue"></div>
-      </div>
-      <div class="caracteristicas">
-        <p>Puntos: <span class="puntos">15</span></p>
-      </div>
+    <div id="Jugador2" class="tableroPeronal">
+        <p>Objetivos Jugador 2</p>
+        <div id="ObjetivosJugador2" class="objetivos"></div>
+
     </div>
-  </div>
+    <div id="mazoObjetivos">
+        <div class="no-repartido">
+            <div class="objetivo" data-color="red" data-puntos="3" data-score="10" data-cumplido="NO">
+                <p>Objetivo</p>
+                <div class="grafico">
+                    <div class="smallDot white" data-x="0" data-y="0" data-color="white"></div>
+                    <div class="smallDot red" data-x="1" data-y="0" data-color="red"></div>
+                    <div class="smallDot red nl" data-x="0" data-y="1" data-color="red"></div>
+                    <div class="smallDot red" data-x="1" data-y="1" data-color="red"></div>
+                </div>
+                <div class="caracteristicas">
+                    <p>Puntos: <span class="puntos">10</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="no-repartido">
+            <div class="objetivo" data-color="yellow" data-puntos="3" data-score="10" data-cumplido="NO">
+                <p>Objetivo</p>
+                <div class="grafico">
+                    <div class="smallDot yellow" data-x="0" data-y="0" data-color="yellow"></div>
+                    <div class="smallDot yellow" data-x="1" data-y="0" data-color="yellow"></div>
+                    <div class="smallDot nl yellow" data-x="0" data-y="1" data-color="yellow"></div>
+                </div>
+                <div class="caracteristicas">
+                    <p>Puntos: <span class="puntos">10</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="no-repartido">
+            <div class="objetivo" data-color="green" data-puntos="5" data-score="25" data-cumplido="NO">
+                <p>Objetivo</p>
+                <div class="grafico">
+                    <div class="smallDot green" data-x="0" data-y="0" data-color="red"></div>
+                    <div class="smallDot green" data-x="1" data-y="0" data-color="red"></div>
+                    <div class="smallDot green" data-x="2" data-y="0" data-color="red"></div>
+                    <div class="smallDot green" data-x="3" data-y="0" data-color="red"></div>
+                    <div class="smallDot green" data-x="4" data-y="0" data-color="red"></div>
+                </div>
+                <div class="caracteristicas">
+                    <p>Puntos: <span class="puntos">25</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="no-repartido">
+            <div class="objetivo" data-color="red" data-puntos="5" data-score="25" data-cumplido="NO">
+                <p>Objetivo</p>
+                <div class="grafico">
+                    <div class="smallDot white" data-x="0" data-y="0" data-color="white"></div>
+                    <div class="smallDot red" data-x="1" data-y="0" data-color="red"></div>
+                    <div class="smallDot white" data-x="2" data-y="0" data-color="white"></div>
+                    <div class="smallDot red nl" data-x="0" data-y="1" data-color="red"></div>
+                    <div class="smallDot red" data-x="1" data-y="1" data-color="red"></div>
+                    <div class="smallDot red" data-x="2" data-y="1" data-color="red"></div>
+                    <div class="smallDot white nl" data-x="0" data-y="2" data-color="white"></div>
+                    <div class="smallDot red" data-x="1" data-y="2" data-color="red"></div>
+                    <div class="smallDot white" data-x="2" data-y="2" data-color="white"></div>
+                </div>
+                <div class="caracteristicas">
+                    <p>Puntos: <span class="puntos">25</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="no-repartido">
+            <div class="objetivo" data-color="blue" data-puntos="4" data-score="15" data-cumplido="NO">
+                <p>Objetivo</p>
+                <div class="grafico">
+                    <div class="smallDot white" data-x="0" data-y="0" data-color="white"></div>
+                    <div class="smallDot blue" data-x="1" data-y="0" data-color="blue"></div>
+                    <div class="smallDot blue nl" data-x="0" data-y="1" data-color="blue"></div>
+                    <div class="smallDot blue" data-x="1" data-y="1" data-color="blue"></div>
+                    <div class="smallDot blue nl" data-x="0" data-y="2" data-color="blue"></div>
+                </div>
+                <div class="caracteristicas">
+                    <p>Puntos: <span class="puntos">15</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
